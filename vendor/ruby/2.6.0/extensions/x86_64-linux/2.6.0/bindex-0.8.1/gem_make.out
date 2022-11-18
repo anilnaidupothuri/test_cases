@@ -1,0 +1,15 @@
+current directory: /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/home/ext02/.rvm/rubies/ruby-2.6.5/bin/ruby -I /home/ext02/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0 -r ./siteconf20221118-7766-1ps72xu.rb extconf.rb
+creating Makefile
+
+current directory: /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20221118-7766-18pemnw/skiptrace/internal
