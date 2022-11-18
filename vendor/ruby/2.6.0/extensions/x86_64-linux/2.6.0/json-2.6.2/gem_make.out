@@ -1,0 +1,13 @@
+current directory: /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/gems/json-2.6.2/ext/json
+/home/ext02/.rvm/rubies/ruby-2.6.5/bin/ruby -I /home/ext02/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0 -r ./siteconf20221118-12556-1hjfxia.rb extconf.rb
+creating Makefile
+
+current directory: /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/gems/json-2.6.2/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/gems/json-2.6.2/ext/json
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/gems/json-2.6.2/ext/json
+make "DESTDIR=" install
