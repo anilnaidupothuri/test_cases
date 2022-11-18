@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
@@ -6,7 +8,8 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @user = User.new(name: 'Example User', email: 'user@example.com',password: "foobar", password_confirmation: "foobar")
+    @user = User.new(name: 'Example User', email: 'user@example.com', password: 'foobar',
+                     password_confirmation: 'foobar')
   end
   test 'should be valid' do
     assert @user.valid?
@@ -24,24 +27,23 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   test 'email should not be too long' do
-    @user.email = 'a' * 244 + '@example.com'
+    @user.email = "#{'a' * 244}@example.com"
     assert_not @user.valid?
   end
   test 'email addresses should be unique' do
     duplicate_user = @user.dup
- 
+
     @user.save
     assert_not duplicate_user.valid?
   end
-  test "email addresses should be saved as lowercase" do
-mixed_case_email = "Foo@ExAMPle.CoM"
-@user.email = mixed_case_email
-@user.save
-assert_equal mixed_case_email.downcase, @user.reload.email
-end
-test "password should be present (nonblank)" do
-@user.password = @user.password_confirmation = " "
-assert_not @user.valid?
-end
- 
+  test 'email addresses should be saved as lowercase' do
+    mixed_case_email = 'Foo@ExAMPle.CoM'
+    @user.email = mixed_case_email
+    @user.save
+    assert_equal mixed_case_email.downcase, @user.reload.email
+  end
+  test 'password should be present (nonblank)' do
+    @user.password = @user.password_confirmation = ' '
+    assert_not @user.valid?
+  end
 end
