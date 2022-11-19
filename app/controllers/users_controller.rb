@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts
+
+    @microposts = User.user_microposts(@user.id)
   end
 
   def create

@@ -8,6 +8,11 @@ class Micropost < ApplicationRecord
   validates :content, presence: true, length: { maximum: 140 }
 
   validate :picture_size
+  after_create :micropost_created
+
+  def micropost_created
+    puts 'micropost has been created'
+  end
 
   private
 

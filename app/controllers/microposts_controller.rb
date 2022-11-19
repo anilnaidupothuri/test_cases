@@ -1,10 +1,17 @@
 # frozen_string_literal: true
 
 class MicropostsController < ApplicationController
+  include SessionsHelper
+
   before_action :correct_user, only: :destroy
 
   def new
     @micropost = Micropost.new
+  end
+
+  def show
+    @micro = Micropost.user_microposts
+    byebug
   end
 
   def create
