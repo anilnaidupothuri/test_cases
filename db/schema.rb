@@ -12,7 +12,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_221_118_090_334) do
+ActiveRecord::Schema.define(version: 20_221_119_071_631) do
+  create_table 'microposts', force: :cascade do |t|
+    t.text 'content'
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'picture'
+    t.index ['user_id'], name: 'index_microposts_on_user_id'
+  end
+
   create_table 'users', force: :cascade do |t|
     t.string 'name'
     t.string 'email'
@@ -21,4 +30,6 @@ ActiveRecord::Schema.define(version: 20_221_118_090_334) do
     t.string 'password_digest'
     t.string 'password_confirmation'
   end
+
+  add_foreign_key 'microposts', 'users'
 end

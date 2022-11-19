@@ -15,7 +15,7 @@ module SessionsHelper
 
   def log_out
     session.delete(:user_id)
-    byebug
+
     @current_user = nil
   end
 end

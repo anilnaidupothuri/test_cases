@@ -24,6 +24,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '3.3.6'
+gem 'carrierwave', '0.11.2'
+gem 'fog', '1.38.0'
+gem 'mini_magick', '4.5.1'
 gem 'rubocop'
 
 # Use Active Storage variant

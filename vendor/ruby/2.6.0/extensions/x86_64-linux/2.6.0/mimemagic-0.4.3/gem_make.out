@@ -1,0 +1,3 @@
+current directory: /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/gems/mimemagic-0.4.3/ext/mimemagic
+/home/ext02/.rvm/rubies/ruby-2.6.5/bin/ruby -rrubygems /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/gems/rake-13.0.6/exe/rake RUBYARCHDIR\=/home/ext02/workspace/test_cases/vendor/ruby/2.6.0/extensions/x86_64-linux/2.6.0/mimemagic-0.4.3 RUBYLIBDIR\=/home/ext02/workspace/test_cases/vendor/ruby/2.6.0/extensions/x86_64-linux/2.6.0/mimemagic-0.4.3
+mkdir -p /home/ext02/workspace/test_cases/vendor/ruby/2.6.0/extensions/x86_64-linux/2.6.0/mimemagic-0.4.3/mimemagic
