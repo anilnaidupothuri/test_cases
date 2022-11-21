@@ -1,0 +1,43 @@
+<% @users.each do |user| %>
+		<div class="card col-sm-12 my-auto">		
+			  <div class="card-header">	  
+			      <%= user.name %>			  
+			  </div>
+			  <div class="card-body">
+			  Followers : <%= user.following.count %>  
+    		   Following : <%= user.followers.count %><br> 		  	
+         <% if user == current_user %>
+            <%= link_to "View Profile", user_path(user)%>
+			   <%= link_to "Edit Profile", edit_user_path(user) %>
+			   <%= link_to "delete",user, method: :delete, data: { confirm: "You sure?" } %>	
+			<% else %> 
+			    <% if current_user.following?(user) %>
+                    <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+																		                 html: { method: :delete },
+																			                remote: true) do |f| %>
+	                 <%= f.submit "Unfollow" %>
+	                 <% end %>
+	          <% else %>
+					      <%= form_for(current_user.active_relationships.build) do |f| %>
+							<div>
+								<%= hidden_field_tag :followed_id, user.id %>		
+							</div>
+							<%= f.submit "Follow" %>
+			 				<% end %>
+				  
+			    <% end %>
+
+			   <%= link_to "View Profile", user_path(user)%>   	
+		   <% end %>
+		    <br> 
+		</div>
+	      
+	      <div class="timestamp">
+             created<%= time_ago_in_words(user.created_at) %> ago.
+          </div> 
+	    </div>
+<% end %>
+
+
+
+    
