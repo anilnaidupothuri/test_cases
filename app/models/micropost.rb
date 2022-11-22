@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Micropost < ApplicationRecord
-  belongs_to :user
-  has_many :comments
+  belongs_to :user, touch: true
+  has_many :comments, dependent: :destroy
 
   mount_uploader :picture, PictureUploader
   default_scope -> { order(created_at: :desc) }

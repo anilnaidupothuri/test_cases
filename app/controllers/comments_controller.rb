@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :current_post, only: %i[new create destroy]
 
-  def show 
-    @comment = Comment.find(params[:id])
+  def show
+    @comment = Comment.find(params[:micropost_id])
   end
+
   def new
-    @micro = Micropost.find(params[:micropost_id])
     @comment = Comment.new
   end
 
   def create
-    @micro = Micropost.find(params[:micropost_id])
-
     @comment = current_user.comments.new(comments: params[:comment][:comments], micropost: @micro)
 
     if @comment.save
@@ -24,8 +23,15 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
+    @comment = @micro.comments.find_by(id: params[:id])
+
     @comment.destroy
-    redirect_to micropost_path
-   end
+    redirect_to @micro
+  end
+
+  private
+
+  def current_post
+    @micro = Micropost.find(params[:micropost_id])
+  end
 end

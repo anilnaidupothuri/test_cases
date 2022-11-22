@@ -5,13 +5,12 @@ class MicropostsController < ApplicationController
 
   before_action :correct_user, only: :destroy
 
-  def index 
+  def index
     @microposts = Micropost.paginate(page: params[:page], per_page: 3)
   end
 
   def new
     @micropost = Micropost.new
-    byebug
   end
 
   def show
@@ -21,7 +20,7 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
-    byebug
+
     if @micropost.save
       flash[:success] = 'Micropost created!'
       redirect_to current_user

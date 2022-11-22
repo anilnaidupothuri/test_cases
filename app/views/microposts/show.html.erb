@@ -5,16 +5,14 @@
 </div>
 
 <div class="comments-body">
-<%= link_to 'comment', new_micropost_comment_path(@post) %>: <%= @comments.count%>
-
-<br>
-   <% @comments.each do |comment| %>
-     <i><%=comment.user.name %> </i>: <%= link_to comment.comments.to_s.truncate(10),micropost_comment_path(comment) %>, 
+  <%= link_to 'comment', new_micropost_comment_path(@post) %>: <%= @comments.count%>
+  <br>
+  <% @comments.each do |comment| %>
+     <i><%=comment.user.name %> </i>: <%= link_to comment.comments.to_s.truncate(10),micropost_comment_path(comment)%>
        <% if current_user == comment.user %>
        <%= link_to "delete", micropost_comment_path(micropost_id:comment.micropost_id, id:comment.id),method: :delete,                                                                            data: { confirm: "You sure?" } %>
        <% end %>
    <br>
    <% end %>
-
 </div>
 
