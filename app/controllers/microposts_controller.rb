@@ -10,8 +10,8 @@ class MicropostsController < ApplicationController
   end
 
   def show
-    @micro = Micropost.user_microposts
-    byebug
+    @micro = Micropost.find(params[:id])
+    
   end
 
   def create

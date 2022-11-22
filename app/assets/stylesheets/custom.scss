@@ -140,7 +140,7 @@ color: $state-danger-text;
 }
 .card{
 	width:350px;
-	height:100px;
+	
 	padding:11px;
         margin: 0 auto; /* Added */
         float: none; /* Added */
@@ -151,6 +151,16 @@ color: $state-danger-text;
 	color:#5AFCEB;
 	background-color:#5A73FC;
 }
+.card-body{
+        padding-top:15px;
+        padding-bottom:15px;
+		background-color:cyan;
+
+}
 .timestamp{
-	background-color:#B1ABD2;
+	background-color:#D2D1D8;
+}
+
+.users.follow {
+padding: 0;
 }

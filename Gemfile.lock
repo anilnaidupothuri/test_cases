@@ -233,6 +233,7 @@ GEM
     formatador (0.3.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hirb (0.7.3)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -422,6 +423,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave (= 0.11.2)
   fog (= 1.38.0)
+  hirb
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mini_magick (= 4.5.1)
