@@ -4,8 +4,8 @@
 			      <%= user.name %>			  
 			  </div>
 			  <div class="card-body">
-			  Followers : <%= user.following.count %>  
-    		   Following : <%= user.followers.count %><br> 		  	
+			  Following: <%= user.following.count %>  
+    		   Followers : <%= user.followers.count %><br> 		  	
          <% if user == current_user %>
             <%= link_to "View Profile", user_path(user)%>
 			   <%= link_to "Edit Profile", edit_user_path(user) %>

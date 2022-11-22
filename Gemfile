@@ -28,7 +28,7 @@ gem 'carrierwave', '0.11.2'
 gem 'fog', '1.38.0'
 gem 'mini_magick', '4.5.1'
 gem 'rubocop'
-
+gem 'hirb'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
