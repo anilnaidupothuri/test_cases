@@ -1,7 +1,20 @@
 
 <div class="card col-sm-12 my-auto">
-     <div class="style:float-left" ><%= image_tag(@micro.picture.url,size:"280x190") if @micro.picture? %></div>
-     <h4><%= @micro.content %></h4>
+     <%= image_tag(@post.picture.url,size:"280x190") if @post.picture? %>
+     <h4><%= @post.content %></h4>
 </div>
 
-	
+<div class="comments-body">
+<%= link_to 'comment', new_micropost_comment_path(@post) %>: <%= @comments.count%>
+
+<br>
+   <% @comments.each do |comment| %>
+     <i><%=comment.user.name %> </i>: <%= link_to comment.comments.to_s.truncate(10),micropost_comment_path(comment) %>, 
+       <% if current_user == comment.user %>
+       <%= link_to "delete", micropost_comment_path(micropost_id:comment.micropost_id, id:comment.id),method: :delete,                                                                            data: { confirm: "You sure?" } %>
+       <% end %>
+   <br>
+   <% end %>
+
+</div>
+

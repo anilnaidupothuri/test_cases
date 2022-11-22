@@ -26,9 +26,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '3.3.6'
 gem 'carrierwave', '0.11.2'
 gem 'fog', '1.38.0'
+gem 'hirb'
 gem 'mini_magick', '4.5.1'
 gem 'rubocop'
-gem 'hirb'
+gem 'will_paginate', '~> 3.3'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

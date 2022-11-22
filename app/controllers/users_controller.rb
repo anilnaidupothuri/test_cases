@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   include ApplicationHelper
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 3)
   end
 
   def new
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    @microposts = User.user_microposts(@user.id)
+    @microposts = User.user_microposts(@user.id).paginate(page: params[:page], per_page: 3)
   end
 
   def create

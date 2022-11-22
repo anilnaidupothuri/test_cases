@@ -1,0 +1,31 @@
+<br></br>
+
+<% @microposts.each do |post| %>
+		<div class="card col-sm-12 my-auto">		
+			  <div class="card-header">	  
+			      <%= post.content %>			  
+			  </div>
+			  <div class="card-body">
+			 		  	
+        
+            <%= link_to "View Profile", micropost_path(post)%>
+			    <% if post.user == current_user %>
+			   <%= link_to "delete",post, method: :delete, data: { confirm: "You sure?" } %>	
+			 <% end %>
+			    
+
+			    	
+		  
+		    <br> 
+		</div>
+	      
+	      <div class="timestamp">
+	      	comments:<%= post.comments.count %> 
+             created <%= time_ago_in_words(post.created_at) %> ago.
+          </div> 
+	    </div>
+<% end %>
+
+
+
+    <%= will_paginate @microposts %>
