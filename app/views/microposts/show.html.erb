@@ -5,7 +5,8 @@
 </div>
 
 <div class="comments-body">
-  <%= link_to 'comment', new_micropost_comment_path(@post) %>: <%= @comments.count%>
+  <%= link_to 'comment', new_micropost_comment_path(@post) %>: <%= @comments.count%>   
+   <%= link_to 'Likes', liked_users_path(@post.id) %> : <%= @post.likes.count %>
   <br>
   <% @comments.each do |comment| %>
      <i><%=comment.user.name %> </i>: <%= link_to comment.comments.to_s.truncate(10),micropost_comment_path(comment)%>
@@ -14,5 +15,12 @@
        <% end %>
    <br>
    <% end %>
+</div>
+<div class="like">
+<% if @post.liked?(current_user) %>
+    <%= button_to "like", like_micropost_path(@post.id),method:"put",disabled:true %>
+  <% else  %>
+    <%= button_to "like",like_micropost_path(@post.id),method: "post" %>
+  <% end %>
 </div>
 

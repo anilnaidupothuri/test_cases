@@ -4,6 +4,8 @@ class Micropost < ApplicationRecord
   belongs_to :user, touch: true
   has_many :comments, dependent: :destroy
 
+  has_many :likes
+
   mount_uploader :picture, PictureUploader
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
@@ -24,12 +26,7 @@ class Micropost < ApplicationRecord
     puts 'micropost has been created'
   end
 
-  private
-
-  # Validates the size of an uploaded picture.
-  def picture_size
-    return unless picture.size > 200.kilobytes
-
-    errors.add(:picture, 'should be less than 5MB')
+  def liked?(user)
+    !!likes.find { |like| like.user_id == user.id }
   end
 end

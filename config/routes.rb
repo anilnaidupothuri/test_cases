@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-
+  get 'liked_users', to: 'microposts#user_likes'
   resources :users do
     member do
       get :following, :followers
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :microposts do
+    post 'like', on: :member
     resources :comments
   end
 
