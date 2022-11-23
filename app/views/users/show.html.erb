@@ -11,8 +11,8 @@
 
 
 </div>
-    Followers : <%= @user.following.count %>
-    Following : <%= @user.followers.count %>
+    Following : <%= @user.following.count %>
+    Followers  : <%= @user.followers.count %>
 	<% @microposts.each do |post| %>
 		<div class="card col-sm-12 my-auto">		
 		  <div class="card-header">	  
@@ -28,7 +28,9 @@
 		   </div>		
 	      
 	      <div class="timestamp">
+	      	comments:<%= post.comments.count %> 
              Posted <%= time_ago_in_words(post.created_at) %> ago.
           </div> 
 	    </div>
     <% end %><br>
+    <%= will_paginate @microposts %>
