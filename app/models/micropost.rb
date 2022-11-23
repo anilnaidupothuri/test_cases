@@ -11,8 +11,10 @@ class Micropost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
 
-  validate :picture_size
   after_create :micropost_created
+
+  scope :recent, -> { where('created_at > ?', Time.now - 1.day) }
+  scope :past_week, -> { where(created_at: Time.zone.now.at_beginning_of_week...Time.zone.now.at_end_of_week) }
 
   after_initialize do |_micropost|
     puts 'You have initialized an object!'

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   get 'liked_users', to: 'microposts#user_likes'
+  get 'recent_posts', to: 'microposts#recent_posts'
+  get 'this_week', to: 'microposts#this_week'
   resources :users do
     member do
       get :following, :followers

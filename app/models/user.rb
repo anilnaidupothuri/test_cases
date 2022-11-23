@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :comments, dependent: :destroy
 
-  has_one :like
+  has_many :likes
 
   before_save { email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }

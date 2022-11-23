@@ -1,4 +1,6 @@
 <br></br>
+<%= link_to 'recent_posts', recent_posts_path %>  
+<%= link_to 'week_posts', this_week_path %>
 
 <% @microposts.each do |post| %>
 	<div class="card col-sm-12 my-auto">		
@@ -23,5 +25,6 @@
         </div> 
 	</div>
 <% end %>
+ <center> Total Posts:<%= @microposts.count%></center>
 
     <%= will_paginate @microposts %>
