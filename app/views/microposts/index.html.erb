@@ -1,4 +1,6 @@
 <br></br>
+<%= link_to 'recent_posts', recent_posts_path %>  
+<%= link_to 'week_posts', this_week_path %>
 
 <% @microposts.each do |post| %>
 	<div class="card col-sm-12 my-auto">		
@@ -12,13 +14,17 @@
 			   <%= link_to "delete",post, method: :delete, data: { confirm: "You sure?" } %>	
 			<% end %> 		  
 		    <br> 
+		     	comments:<%= post.comments.count %> Likes:<%= post.likes.count %>
 		</div>	
 
 	    <div class="timestamp">
-	      	comments:<%= post.comments.count %> 
+	     
+	     
+
              created <%= time_ago_in_words(post.created_at) %> ago.
         </div> 
 	</div>
 <% end %>
+ <center> Total Posts:<%= @microposts.count%></center>
 
     <%= will_paginate @microposts %>
